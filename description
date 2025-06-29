@@ -1,0 +1,27 @@
+GitHub Copilot
+This script is a Bash tool designed to bypass Mobile Device Management (MDM) restrictions on macOS systems, typically when running from macOS Recovery. Here’s a breakdown of what it does:
+
+User Interface & Options:
+
+Displays a colored header.
+Presents a menu with options like "Bypass MDM from Recovery", "Disable Notification (SIP)", "Disable Notification (Recovery)", "Check MDM Enrollment", and "Reboot & Exit".
+Bypass MDM from Recovery:
+
+Renames the "Macintosh HD - Data" volume to "Data" if it exists.
+Prompts the user to create a temporary admin user (with customizable name, username, and password).
+Uses dscl to create this user directly in the system’s directory services database on the mounted volume.
+Adds the user to the admin group.
+Blocks Apple MDM-related domains by appending entries to the hosts file on the main system volume.
+Removes or creates certain files related to configuration profiles to prevent MDM enrollment and activation.
+Informs the user that MDM has been bypassed and instructs them to reboot.
+Disable Notification (SIP/Recovery):
+
+Removes or creates specific files related to configuration profiles, either using sudo (when SIP is enabled) or directly (from Recovery).
+Check MDM Enrollment:
+
+Runs profiles show -type enrollment to check the MDM enrollment status.
+Reboot & Exit:
+
+Reboots the system.
+Summary:
+This script is intended to help users bypass MDM restrictions on a Mac by manipulating system files and settings, creating a new admin user, and blocking Apple’s MDM servers. It is typically used in a recovery environment and is relevant for ethical hacking or forensic analysis of macOS security controls. Use of such scripts should always be authorized and ethical, as bypassing MDM is generally against organizational policy.
